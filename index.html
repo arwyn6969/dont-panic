@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DON'T PANIC — The Hitchhiker's Guide to the Galaxy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+  <div id="boot">
+    <img src="art/dont-panic.jpg" alt="DON'T PANIC">
+    <div class="hint">click to hitchhike</div>
+  </div>
+
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">DON'T PANIC</div>
+      <div class="subtitle">The Hitchhiker’s Guide to the Galaxy — Infocom 1984 · Guide console</div>
+      <div class="topbar-actions">
+        <button class="chip on" id="easyBtn">Don't Panic mode</button>
+        <button class="chip" data-cmd="save">Save</button>
+        <button class="chip" data-cmd="restore">Restore</button>
+        <button class="chip" data-cmd="restart">Restart</button>
+      </div>
+    </header>
+
+    <main class="stage">
+      <section class="col">
+        <div class="col-label">Location plate</div>
+        <div class="art-wrap">
+          <img id="art" src="art/dont-panic.jpg" alt="Guide illustration">
+          <div class="art-caption" id="artCap">COVER / DON'T PANIC</div>
+        </div>
+        <div class="compass">
+          <button class="ghost"></button>
+          <button data-cmd="north">N</button>
+          <button class="ghost"></button>
+          <button data-cmd="west">W</button>
+          <button data-cmd="look">LOOK</button>
+          <button data-cmd="east">E</button>
+          <button data-cmd="up">UP</button>
+          <button data-cmd="south">S</button>
+          <button data-cmd="down">DOWN</button>
+        </div>
+      </section>
+
+      <section class="col">
+        <div class="col-label">Shipboard transcript</div>
+        <div id="gameport">
+          <div id="statusline"></div>
+          <div id="windowport"></div>
+        </div>
+      </section>
+
+      <section class="col">
+        <div class="col-label">The Guide</div>
+        <div class="guide-body" id="guideEntry">
+          <h3>Entries</h3>
+          <p>Tap a topic. The console will also ask the in-game Guide, which is ruder and more accurate.</p>
+        </div>
+        <div class="topics" id="topics"></div>
+        <div class="col-label">Things in view</div>
+        <div class="nouns" id="nouns"></div>
+      </section>
+    </main>
+
+    <footer class="deck">
+      <div class="verbs">
+        <button class="key" data-cmd="look">Look</button>
+        <button class="key" data-cmd="inventory">Inv</button>
+        <button class="key" data-cmd="wait">Wait</button>
+        <button class="key" data-cmd="examine" data-mode="insert">Examine</button>
+        <button class="key" data-cmd="take" data-mode="insert">Take</button>
+        <button class="key" data-cmd="drop" data-mode="insert">Drop</button>
+        <button class="key" data-cmd="open" data-mode="insert">Open</button>
+        <button class="key" data-cmd="put" data-mode="insert">Put</button>
+        <button class="key" data-cmd="consult guide about" data-mode="insert">Consult</button>
+        <button class="key" data-cmd="turn on" data-mode="insert">Turn on</button>
+        <button class="key" data-cmd="lie down">Lie down</button>
+        <button class="key" data-cmd="enjoy" data-mode="insert">Enjoy</button>
+        <button class="key panic" data-cmd="ANY">Any</button>
+      </div>
+      <div class="hints" id="hints"></div>
+      <div class="cmdline">
+        <span class="prompt">&gt;</span>
+        <input id="command" autocomplete="off" spellcheck="false" placeholder="type a command, or tap the keys above">
+        <button class="go" id="go">SEND</button>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal" id="slotmodal">
+    <div class="panel">
+      <h2 id="slotTitle">Save</h2>
+      <button class="slot" data-slot="hhg-slot-1">Slot one <em>empty</em></button>
+      <button class="slot" data-slot="hhg-slot-2">Slot two <em>empty</em></button>
+      <button class="slot" data-slot="hhg-slot-3">Slot three <em>empty</em></button>
+      <button class="slot" data-slot="hhg-slot-auto">Autosave <em id="autoMark">empty</em></button>
+      <button class="ghostbtn" id="slotCancel">Cancel</button>
+    </div>
+  </div>
+  <div class="deadpane" id="deadpane">
+    <div class="panel">
+      <h2>Mostly deceased</h2>
+      <p>Don't Panic mode caught that. You can climb back into the last autosave or start the worst day of your life again.</p>
+      <div class="deadrow">
+        <button class="key" id="deadRestore">Restore autosave</button>
+        <button class="key panic" id="deadRestart">Restart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="art-data.js"></script>
+  <script src="story-data.js"></script>
+  <script src="zvm.min.js"></script>
+  <script src="mini-glk.js"></script>
+  <script src="guide-ui.js"></script>
+</body>
+</html>
