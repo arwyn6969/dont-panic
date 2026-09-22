@@ -11,7 +11,7 @@
 </head>
 <body>
   <div id="boot">
-    <img src="art/dont-panic.jpg" alt="DON'T PANIC">
+    <img id="bootImg" src="art/dont-panic.jpg" alt="DON'T PANIC">
     <div class="hint">click to hitchhike</div>
   </div>
 
@@ -85,13 +85,14 @@
       </div>
       <div class="hints" id="hints"></div>
       <div class="cmdline">
-        <span class="prompt">&gt;</span>
+        <span class="prompt">></span>
         <input id="command" autocomplete="off" spellcheck="false" placeholder="type a command, or tap the keys above">
         <button class="go" id="go">SEND</button>
       </div>
     </footer>
   </div>
 
+  
   <div class="modal" id="slotmodal">
     <div class="panel">
       <h2 id="slotTitle">Save</h2>
