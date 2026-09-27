@@ -14,7 +14,6 @@
     <img id="bootImg" alt="DON'T PANIC">
     <div class="hint">click to hitchhike</div>
   </div>
-
   <div class="app">
     <header class="topbar">
       <div class="brand">DON'T PANIC</div>
@@ -27,7 +26,6 @@
         <button class="chip" data-cmd="restart" type="button">Restart</button>
       </div>
     </header>
-
     <main class="stage">
       <section class="col" id="plateCol">
         <div class="col-label">Location plate</div>
@@ -49,7 +47,6 @@
         <div class="col-label">Things in view</div>
         <div class="nouns" id="nouns"></div>
       </section>
-
       <section class="col" id="transcriptCol">
         <div class="col-label">Shipboard transcript</div>
         <div id="gameport">
@@ -58,7 +55,6 @@
         </div>
       </section>
     </main>
-
     <footer class="deck">
       <div class="verbs">
         <button class="key" data-cmd="look" type="button">Look</button>
@@ -84,7 +80,6 @@
       </div>
     </footer>
   </div>
-
   <aside class="guide-drawer" id="guidePanel" aria-hidden="true">
     <div class="guide-head">
       <div class="col-label">The Guide</div>
@@ -96,7 +91,6 @@
     </div>
     <div class="topics" id="topics"></div>
   </aside>
-
   <div class="modal" id="slotmodal">
     <div class="panel">
       <h2 id="slotTitle">Save</h2>
@@ -107,7 +101,6 @@
       <button class="ghostbtn" id="slotCancel" type="button">Cancel</button>
     </div>
   </div>
-
   <div class="deadpane" id="deadpane">
     <div class="panel">
       <h2>Mostly deceased</h2>
@@ -119,12 +112,12 @@
       </div>
     </div>
   </div>
-
   <div class="toast" id="toast"></div>
   <script src="boot-story.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ifvms@1.1.6/dist/zvm.min.js"></script>
   <script src="mini-glk.js"></script>
   <script src="guide-data.js"></script>
-  <script src="guide-ui.js"></script>
+  <script src="guide-core.js"></script>
+  <script src="guide-boot.js"></script>
 </body>
 </html>
