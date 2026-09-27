@@ -1,36 +1,29 @@
 # DON'T PANIC
 
-A browser console for Infocom's *The Hitchhiker's Guide to the Galaxy* (1984), with a 1981 BBC / Rod Lord-inspired interface: clickable verbs, compass, noun chips, Don't Panic hints, local save slots, and responsive play panels for desktop and mobile.
+A browser console for Infocom's *The Hitchhiker's Guide to the Galaxy* (1984), with a 1981 BBC / Rod Lord-inspired interface: clickable verbs, compass, noun chips, Don't Panic hints, local save slots, and a chrome Guide overlay.
 
 **Repo:** https://github.com/arwyn6969/dont-panic  
-**Play (after Pages is on):** https://arwyn6969.github.io/dont-panic/
-
-## Turn hosting on (one click)
-
-GitHub will not publish the site until Pages is enabled on this repo:
-
-1. Open [Settings → Pages](https://github.com/arwyn6969/dont-panic/settings/pages)
-2. Under **Build and deployment → Source**, choose **GitHub Actions**
-3. Wait for the `Deploy to GitHub Pages` workflow to go green
-4. Open https://arwyn6969.github.io/dont-panic/
-
-You can also pick **Deploy from a branch** → `main` / `/ (root)` if Actions is blocked.
+**Play:** https://arwyn6969.github.io/dont-panic/
 
 ## How to play
 
 1. Click the cover (or wait a second) to start.
 2. Type commands, or tap the verb keys, compass, hints, and nouns.
-3. **Don't Panic mode** (on by default) shows context hints and can restore you from death using autosave.
-4. Save / Restore uses three local slots plus an autosave. Progress lives in this browser only.
+3. **Don't Panic mode** (on by default, remembered in this browser) shows a short scene note plus up to four context actions. It also keeps a *safe* autosave from before a lethal turn.
+4. **The Guide** in the header is chrome — homage blurbs. It will only send `consult guide about …` once you actually have the in-game Guide.
+5. Save / Restore uses three local slots plus an autosave. Progress lives in this browser only.
 
-## Responsive layout
+## World model
 
-The console is designed for desktop and mobile play:
+The console no longer guesses the room from the entire transcript. It reads the status-line location first, then the latest turn of output. That drives:
 
-- The location artwork stays contained within its panel instead of being cropped or pushed off-screen.
-- The transcript wraps long lines and remains independently scrollable.
-- Portrait mobile screens use a compact stacked layout with touch-friendly controls.
-- The Guide panel stays hidden until an actual Guide entry is requested, leaving more room for the game transcript at startup.
+- `body[data-room]` and `body[data-ship]` (hooks for a later visual pass)
+- `#art` / `#artCap` location plates
+- `#notice` + `#hints` (max four)
+- `#nouns`
+- compass labels (N/E/S/W on Earth, FORE/STBD/AFT/PORT aboard ship)
+
+`window.GuideConsole` exposes `submit`, `setArt`, `setHints`, `setGuide`, `scanWorld`, and `state` so a design agent can restyle without touching the matcher.
 
 ## Stack
 
