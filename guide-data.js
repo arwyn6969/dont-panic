@@ -13,7 +13,7 @@ window.GuideData = (function () {
     magrathea: { cap: "PLANET / MAGRATHEA", file: "magrathea", hue: 265, mark: "mag" },
     dark: { cap: "THE DARK / DO NOT PANIC", file: "space", hue: 0, mark: "dark" },
     whale: { cap: "DEEP SPACE / SUDDEN WHALE", file: "space", hue: 210, mark: "whale" },
-    guide: { cap: "DEVICE / THE GUIDE", file: "guide-open", hue: 18, mark: "guide" }
+    guide: { cap: "DEVICE / THE GUIDE", file: "guide-open", hue: 18, mark: "guide" },
   };
 
   const ROOM_KEYS = [
@@ -28,7 +28,7 @@ window.GuideData = (function () {
     { key: "dark", test: /^\s*dark\b|the dark/i },
     { key: "whale", test: /sperm whale|bowl of petunias/i },
     { key: "earth", test: /planet earth|mostly harmless/i },
-    { key: "space", test: /airlock|hyperspace|darkness of space/i }
+    { key: "space", test: /airlock|hyperspace|darkness of space/i },
   ];
 
   const SCENE_HINTS = {
@@ -46,19 +46,19 @@ window.GuideData = (function () {
         if (ctx.has("tablet") || ctx.has("aspirin") || /tablet|aspirin/.test(ctx.turn)) out.push("take tablet");
         out.push("south");
         return out;
-      }
+      },
     },
     house: {
       notice: "A civil servant and a bulldozer are having a disagreement with your home.",
-      cmds: () => ["examine bulldozer", "lie down", "wait", "examine prosser"]
+      cmds: () => ["examine bulldozer", "lie down", "wait", "examine prosser"],
     },
     lane: {
       notice: "The lane still leads to a pub. The planet, less so.",
-      cmds: () => ["look", "north", "south", "wait"]
+      cmds: () => ["look", "north", "south", "wait"],
     },
     pub: {
       notice: "Ford will attempt to explain the end of the world. Drink first.",
-      cmds: () => ["buy sandwich", "drink beer", "wait", "eat peanuts"]
+      cmds: () => ["buy sandwich", "drink beer", "wait", "eat peanuts"],
     },
     vogon: {
       notice: "The dispenser is playing a crueler game than vending. Look at the room, not the prize.",
@@ -68,37 +68,38 @@ window.GuideData = (function () {
         if (/drain|grating/.test(t)) return ["examine drain", "examine towel", "look"];
         if (/cleaning robot|panel/.test(t)) return ["examine panel", "examine satchel", "look"];
         if (/flying junk|mail/.test(t)) return ["examine mail", "examine satchel", "look"];
+        if (/dispenser|babel/.test(t)) return ["examine dispenser", "press button", "look"];
         return ["look", "examine dispenser", "examine hook", "inventory"];
-      }
+      },
     },
     poetry: {
       notice: "Vogon poetry is the third worst in the Universe. Listening is not optional.",
-      cmds: () => ["listen", "look", "wait"]
+      cmds: () => ["listen", "look", "wait"],
     },
     hog: {
       notice: "A ship that runs on improbability. Doors have opinions. Tea is a political issue.",
-      cmds: () => ["look", "inventory", "port", "starboard"]
+      cmds: () => ["look", "inventory", "port", "starboard"],
     },
     magrathea: {
       notice: "Closed for business is a relative term on a planet factory.",
-      cmds: () => ["look", "wait", "inventory"]
+      cmds: () => ["look", "wait", "inventory"],
     },
     dark: {
       notice: "The Dark is not a room so much as a suggestion. Use the other four senses.",
-      cmds: () => ["look", "listen", "smell", "feel", "taste"]
+      cmds: () => ["look", "listen", "smell", "feel", "taste"],
     },
     whale: {
       notice: "You appear to have become a whale. This is not covered by most insurance.",
-      cmds: () => ["look", "wait", "examine tail"]
+      cmds: () => ["look", "wait", "examine tail"],
     },
     space: {
       notice: "Between places. Hold on to the thumb.",
-      cmds: () => ["look", "inventory", "wait"]
+      cmds: () => ["look", "inventory", "wait"],
     },
     earth: {
       notice: "Mostly harmless. Officially.",
-      cmds: () => ["look", "wait"]
-    }
+      cmds: () => ["look", "wait"],
+    },
   };
 
   const NOUNS = [
@@ -107,7 +108,7 @@ window.GuideData = (function () {
     "ford", "towel", "satchel", "thumb", "sandwich", "beer", "peanuts",
     "babel fish", "dispenser", "panel", "hook", "drain", "mail", "fluff",
     "tea", "cup", "machine", "keypad", "marvin", "sachet", "junk mail",
-    "switch", "case", "plotter"
+    "switch", "case", "plotter",
   ];
 
   const TOPICS = {
@@ -123,8 +124,9 @@ window.GuideData = (function () {
     hitchhiking: "Stick out your thumb. Have a towel. Don't panic.",
     panic: "The cover is printed in large friendly letters for a reason.",
     dark: "Not a place. More of an atmosphere. The Guide's usual advice is to stop expecting walls.",
-    "heart of gold": "Stolen, improbably. The doors are proud of themselves. Nobody asked them."
+    "heart of gold": "Stolen, improbably. The doors are proud of themselves. Nobody asked them.",
   };
+
 
   const DEATH_RE = /\*\*\*[^*\n]*died|\byou have died\b|\byou are dead\b|better luck next life|\byou black out\b|\byou have been killed\b/i;
   return { ART, ROOM_KEYS, SCENE_HINTS, NOUNS, TOPICS, DEATH_RE };

@@ -280,7 +280,11 @@
       tea: OV.tea,
       marvin: OV.marvin,
       vogons: OV.vogon,
-      "heart of gold": OV.hog
+      "heart of gold": OV.hog,
+      magrathea: OV.magrathea,
+      earth: OV.earth,
+      improbability: OV.whale,
+      hitchhiking: OV.thumb
     };
     const diagram = map[name] || null;
     const img = diagram ? '<img class="guide-diagram" src="' + diagram + '" alt="' + name + '">' : "";
