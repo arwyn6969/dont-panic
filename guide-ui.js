@@ -60,6 +60,7 @@
         img.classList.remove("dim");
       }
       if (cap && spec) cap.textContent = spec.cap;
+      renderHotspots(key);
     }, 140);
   }
   function statusText() { return ($("#statusline") && $("#statusline").textContent) || ""; }
@@ -111,7 +112,7 @@
     const key = roomKeyFrom(parseStatus(statusText()), turn);
     state.roomKey = key;
     parseItems(turn);
-    setArt(key); setCompass(key); renderHints(); renderNouns();
+    setArt(key); setCompass(key); renderHints(); renderNouns(); renderHotspots(key);
     $("#guideBtn") && $("#guideBtn").classList.toggle("has-book", state.hasGuide);
     document.body.dataset.ship = isShip(key) ? "1" : "0";
   }
@@ -148,14 +149,10 @@
     NOUNS.filter((n) => wordHas(hay, n)).slice(0, 10).forEach((n) => {
       const b = document.createElement("button");
       b.className = "topic noun"; b.type = "button"; b.textContent = n;
-      b.addEventListener("click", () => {
-        // One-click examine; second click or shift for get
-        submit("examine " + n);
-      });
+      b.addEventListener("click", () => submit("examine " + n));
       b.addEventListener("contextmenu", (e) => { e.preventDefault(); submit("get " + n); });
       box.appendChild(b);
     });
-    // Make plate objects clickable by exposing a small action strip under the caption
     const strip = $("#plateActions");
     if (strip) {
       strip.innerHTML = "";
@@ -166,6 +163,62 @@
         strip.appendChild(a);
       });
     }
+  }
+  const HOTSPOTS = {
+    bedroom: [
+      { x: 8, y: 22, w: 28, h: 42, cmd: "examine bed", label: "bed" },
+      { x: 38, y: 18, w: 18, h: 28, cmd: "examine lamp", label: "lamp" },
+      { x: 58, y: 12, w: 22, h: 30, cmd: "examine washbasin", label: "basin" },
+      { x: 70, y: 28, w: 22, h: 36, cmd: "examine gown", label: "gown" },
+      { x: 42, y: 62, w: 16, h: 18, cmd: "examine phone", label: "phone" },
+      { x: 58, y: 68, w: 14, h: 16, cmd: "get screwdriver", label: "screwdriver" },
+      { x: 72, y: 70, w: 14, h: 16, cmd: "get toothbrush", label: "toothbrush" }
+    ],
+    house: [
+      { x: 28, y: 18, w: 32, h: 42, cmd: "examine house", label: "house" },
+      { x: 62, y: 28, w: 28, h: 36, cmd: "examine bulldozer", label: "bulldozer" },
+      { x: 42, y: 58, w: 24, h: 22, cmd: "lie down", label: "you" },
+      { x: 8, y: 28, w: 16, h: 36, cmd: "examine prosser", label: "prosser" }
+    ],
+    pub: [
+      { x: 18, y: 22, w: 28, h: 40, cmd: "examine bar", label: "bar" },
+      { x: 42, y: 32, w: 18, h: 36, cmd: "examine arthur", label: "arthur" },
+      { x: 58, y: 30, w: 18, h: 36, cmd: "examine ford", label: "ford" },
+      { x: 32, y: 58, w: 14, h: 16, cmd: "eat peanuts", label: "peanuts" },
+      { x: 48, y: 54, w: 12, h: 14, cmd: "drink beer", label: "beer" }
+    ],
+    vogon: [
+      { x: 8, y: 22, w: 28, h: 42, cmd: "examine dispenser", label: "dispenser" },
+      { x: 38, y: 12, w: 18, h: 28, cmd: "examine hook", label: "hook" },
+      { x: 58, y: 48, w: 16, h: 22, cmd: "examine drain", label: "drain" },
+      { x: 72, y: 22, w: 22, h: 36, cmd: "examine panel", label: "panel" }
+    ],
+    hog: [
+      { x: 28, y: 22, w: 28, h: 36, cmd: "examine drive", label: "drive" },
+      { x: 62, y: 28, w: 22, h: 32, cmd: "examine eddie", label: "eddie" },
+      { x: 42, y: 58, w: 18, h: 18, cmd: "examine panel", label: "panel" }
+    ],
+    poetry: [
+      { x: 32, y: 22, w: 28, h: 42, cmd: "examine captain", label: "captain" },
+      { x: 42, y: 58, w: 20, h: 18, cmd: "listen", label: "poetry" }
+    ]
+  };
+  function renderHotspots(key) {
+    const box = $("#hotspots"); if (!box) return;
+    box.innerHTML = "";
+    const spots = HOTSPOTS[key] || [];
+    spots.forEach((s) => {
+      const b = document.createElement("button");
+      b.className = "hotspot";
+      b.type = "button";
+      b.title = s.label || s.cmd;
+      b.style.left = s.x + "%";
+      b.style.top = s.y + "%";
+      b.style.width = s.w + "%";
+      b.style.height = s.h + "%";
+      b.addEventListener("click", (e) => { e.stopPropagation(); submit(s.cmd); });
+      box.appendChild(b);
+    });
   }
   function packSlot(b64, safe) {
     return JSON.stringify({ v: 1, data: b64, room: state.room, roomKey: state.roomKey, turns: state.turns, score: state.score, at: Date.now(), safe: !!safe });
