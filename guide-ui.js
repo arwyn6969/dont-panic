@@ -273,7 +273,16 @@
   function showTopic(name) {
     const body = $("#guideEntry"); if (!body) return;
     const OV = window.ART_OVERRIDES || {};
-    const diagram = (name === "babel fish" && OV.babel) || (name === "panic" && OV.guide) || null;
+    const map = {
+      "babel fish": OV.babel,
+      panic: OV.guide,
+      towel: OV.towel,
+      tea: OV.tea,
+      marvin: OV.marvin,
+      vogons: OV.vogon,
+      "heart of gold": OV.hog
+    };
+    const diagram = map[name] || null;
     const img = diagram ? '<img class="guide-diagram" src="' + diagram + '" alt="' + name + '">' : "";
     body.innerHTML = "<h3>" + name + "</h3>" + img + "<p>" + (TOPICS[name] || "The Guide has much to say, little of it helpful.") + "</p>";
     const ask = document.createElement("button");
