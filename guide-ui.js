@@ -281,10 +281,11 @@
       marvin: OV.marvin,
       vogons: OV.vogon,
       "heart of gold": OV.hog,
-      magrathea: OV.magrathea,
+      magrathea: OV.magrathea || OV.slarti,
       earth: OV.earth,
-      improbability: OV.whale,
-      hitchhiking: OV.thumb
+      improbability: OV.drive || OV.whale,
+      hitchhiking: OV.thumb,
+      dark: OV.dark
     };
     const diagram = map[name] || null;
     const img = diagram ? '<img class="guide-diagram" src="' + diagram + '" alt="' + name + '">' : "";
