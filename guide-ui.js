@@ -166,13 +166,14 @@
   }
   const HOTSPOTS = {
     bedroom: [
-      { x: 8, y: 22, w: 28, h: 42, cmd: "examine bed", label: "bed" },
-      { x: 38, y: 18, w: 18, h: 28, cmd: "examine lamp", label: "lamp" },
-      { x: 58, y: 12, w: 22, h: 30, cmd: "examine washbasin", label: "basin" },
-      { x: 70, y: 28, w: 22, h: 36, cmd: "examine gown", label: "gown" },
-      { x: 42, y: 62, w: 16, h: 18, cmd: "examine phone", label: "phone" },
-      { x: 58, y: 68, w: 14, h: 16, cmd: "get screwdriver", label: "screwdriver" },
-      { x: 72, y: 70, w: 14, h: 16, cmd: "get toothbrush", label: "toothbrush" }
+      { x: 6, y: 26, w: 34, h: 38, cmd: "examine bed", label: "bed" },
+      { x: 32, y: 30, w: 16, h: 20, cmd: "examine lamp", label: "lamp" },
+      { x: 48, y: 26, w: 16, h: 22, cmd: "examine washbasin", label: "basin" },
+      { x: 70, y: 16, w: 20, h: 32, cmd: "examine window", label: "window" },
+      { x: 60, y: 42, w: 18, h: 28, cmd: "examine gown", label: "gown" },
+      { x: 34, y: 60, w: 16, h: 18, cmd: "examine phone", label: "phone" },
+      { x: 48, y: 66, w: 12, h: 14, cmd: "get screwdriver", label: "screwdriver" },
+      { x: 58, y: 66, w: 12, h: 14, cmd: "get toothbrush", label: "toothbrush" }
     ],
     house: [
       { x: 28, y: 18, w: 32, h: 42, cmd: "examine house", label: "house" },
