@@ -10,6 +10,7 @@ window.GuideData = (function () {
     vogon: { cap: "VOGON CONSTRUCTOR FLEET", file: "vogon", hue: 130, mark: "vogon" },
     poetry: { cap: "VOGON / POETRY APPRECIATION", file: "vogon", hue: 140, mark: "poetry" },
     hog: { cap: "STARSHIP / HEART OF GOLD", file: "heart-of-gold", hue: 168, mark: "hog" },
+    galley: { cap: "HEART OF GOLD / GALLEY", file: "galley", hue: 150, mark: "galley" },
     magrathea: { cap: "PLANET / MAGRATHEA", file: "magrathea", hue: 265, mark: "mag" },
     dark: { cap: "THE DARK / DO NOT PANIC", file: "space", hue: 0, mark: "dark" },
     whale: { cap: "DEEP SPACE / SUDDEN WHALE", file: "space", hue: 210, mark: "whale" },
@@ -23,7 +24,8 @@ window.GuideData = (function () {
     { key: "lane", test: /country lane|\blane\b/i },
     { key: "house", test: /front of (your |the )?house|front porch/i },
     { key: "bedroom", test: /\bbedroom\b/i },
-    { key: "hog", test: /heart of gold|bridge|galley|sauna|entry bay|corridor/i },
+    { key: "hog", test: /heart of gold|bridge|entry bay|corridor/i },
+    { key: "galley", test: /galley|nutri-matic|nutrimatic/i },
     { key: "magrathea", test: /magrathea|factory fjord|slartibartfast|matter look/i },
     { key: "dark", test: /^\s*dark\b|the dark/i },
     { key: "whale", test: /sperm whale|bowl of petunias/i },
@@ -79,6 +81,10 @@ window.GuideData = (function () {
     hog: {
       notice: "A ship that runs on improbability. Doors have opinions. Tea is a political issue.",
       cmds: () => ["look", "inventory", "port", "starboard"],
+    },
+    galley: {
+      notice: "The Nutri-Matic will produce something. Whether it is tea is a matter of philosophy.",
+      cmds: () => ["examine nutri-matic", "examine tea", "look", "inventory"],
     },
     magrathea: {
       notice: "Closed for business is a relative term on a planet factory.",

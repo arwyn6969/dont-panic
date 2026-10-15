@@ -245,6 +245,25 @@
     galley: [
       { x: 38, y: 22, w: 28, h: 42, cmd: "examine nutri-matic", label: "nutri-matic" },
       { x: 46, y: 36, w: 12, h: 14, cmd: "examine tea", label: "tea" }
+    ],
+    dark: [
+      { x: 28, y: 22, w: 44, h: 40, cmd: "listen", label: "listen" },
+      { x: 30, y: 64, w: 20, h: 12, cmd: "feel", label: "feel" },
+      { x: 52, y: 64, w: 20, h: 12, cmd: "smell", label: "smell" }
+    ],
+    space: [
+      { x: 32, y: 24, w: 36, h: 36, cmd: "examine hatch", label: "hatch" },
+      { x: 10, y: 32, w: 18, h: 20, cmd: "examine ship", label: "ship" },
+      { x: 70, y: 28, w: 16, h: 18, cmd: "look", label: "look" }
+    ],
+    whale: [
+      { x: 22, y: 20, w: 36, h: 32, cmd: "examine whale", label: "whale" },
+      { x: 40, y: 52, w: 22, h: 20, cmd: "examine petunias", label: "petunias" },
+      { x: 68, y: 22, w: 18, h: 18, cmd: "examine drive", label: "drive" }
+    ],
+    earth: [
+      { x: 28, y: 18, w: 36, h: 40, cmd: "examine earth", label: "earth" },
+      { x: 68, y: 16, w: 22, h: 18, cmd: "examine bypass", label: "bypass" }
     ]
   };
   function imageBounds() {
@@ -392,7 +411,7 @@
       "babel fish": OV.babel,
       panic: OV.guide,
       towel: OV.towel,
-      tea: OV.tea,
+      tea: OV.tea || OV.galley,
       marvin: OV.marvin,
       vogons: OV.vogon,
       "heart of gold": OV.hog,
@@ -400,7 +419,8 @@
       earth: OV.earth,
       improbability: OV.drive || OV.whale,
       hitchhiking: OV.thumb,
-      dark: OV.dark
+      dark: OV.dark,
+      "ford prefect": OV.pub
     };
     const diagram = map[name] || null;
     const img = diagram ? '<img class="guide-diagram" src="' + diagram + '" alt="' + name + '">' : "";
