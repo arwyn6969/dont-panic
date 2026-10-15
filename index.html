@@ -14,6 +14,7 @@
     <img id="bootImg" alt="DON'T PANIC">
     <div class="hint">click to hitchhike</div>
   </div>
+
   <div class="app">
     <header class="topbar">
       <div class="brand">DON'T PANIC</div>
@@ -26,12 +27,14 @@
         <button class="chip" data-cmd="restart" type="button">Restart</button>
       </div>
     </header>
+
     <main class="stage">
       <section class="col" id="plateCol">
         <div class="col-label">Location plate</div>
         <div class="art-wrap">
           <img id="art" alt="Guide illustration">
           <div class="art-caption" id="artCap">COVER / DON'T PANIC</div>
+          <div class="plate-actions" id="plateActions"></div>
         </div>
         <div class="compass" id="compass">
           <button class="ghost" type="button" tabindex="-1"></button>
@@ -47,6 +50,7 @@
         <div class="col-label">Things in view</div>
         <div class="nouns" id="nouns"></div>
       </section>
+
       <section class="col" id="transcriptCol">
         <div class="col-label">Shipboard transcript</div>
         <div id="gameport">
@@ -55,6 +59,7 @@
         </div>
       </section>
     </main>
+
     <footer class="deck">
       <div class="verbs">
         <button class="key" data-cmd="look" type="button">Look</button>
@@ -74,12 +79,13 @@
       <div class="notice" id="notice"></div>
       <div class="hints" id="hints"></div>
       <div class="cmdline">
-        <span class="prompt">></span>
+        <span class="prompt">&gt;</span>
         <input id="command" autocomplete="off" spellcheck="false" placeholder="type a command, or tap the keys above">
         <button class="go" id="go" type="button">SEND</button>
       </div>
     </footer>
   </div>
+
   <aside class="guide-drawer" id="guidePanel" aria-hidden="true">
     <div class="guide-head">
       <div class="col-label">The Guide</div>
@@ -91,6 +97,7 @@
     </div>
     <div class="topics" id="topics"></div>
   </aside>
+
   <div class="modal" id="slotmodal">
     <div class="panel">
       <h2 id="slotTitle">Save</h2>
@@ -101,6 +108,7 @@
       <button class="ghostbtn" id="slotCancel" type="button">Cancel</button>
     </div>
   </div>
+
   <div class="deadpane" id="deadpane">
     <div class="panel">
       <h2>Mostly deceased</h2>
@@ -112,11 +120,12 @@
       </div>
     </div>
   </div>
+
   <div class="toast" id="toast"></div>
   <script src="boot-story.js"></script>
+  <script src="art-overrides.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/ifvms@1.1.6/dist/zvm.min.js"></script>
   <script src="mini-glk.js"></script>
-  <script src="guide-data.js"></script>
   <script src="guide-ui.js"></script>
 </body>
 </html>
