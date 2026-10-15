@@ -202,32 +202,49 @@
       { x: 56, y: 64, w: 12, h: 12, cmd: "get toothbrush", label: "toothbrush" }
     ],
     house: [
-      { x: 22, y: 16, w: 34, h: 40, cmd: "examine house", label: "house" },
-      { x: 58, y: 22, w: 30, h: 36, cmd: "examine bulldozer", label: "bulldozer" },
-      { x: 36, y: 54, w: 22, h: 20, cmd: "lie down", label: "lie down" },
-      { x: 6, y: 24, w: 16, h: 32, cmd: "examine prosser", label: "prosser" }
+      { x: 14, y: 36, w: 14, h: 36, cmd: "examine prosser", label: "prosser" },
+      { x: 30, y: 20, w: 26, h: 42, cmd: "examine house", label: "house" },
+      { x: 28, y: 60, w: 28, h: 18, cmd: "lie down", label: "lie down" },
+      { x: 52, y: 34, w: 34, h: 38, cmd: "examine bulldozer", label: "bulldozer" }
     ],
     pub: [
-      { x: 14, y: 20, w: 28, h: 38, cmd: "examine bar", label: "bar" },
-      { x: 40, y: 28, w: 16, h: 32, cmd: "examine arthur", label: "arthur" },
-      { x: 56, y: 26, w: 16, h: 32, cmd: "examine ford", label: "ford" },
-      { x: 30, y: 56, w: 14, h: 14, cmd: "eat peanuts", label: "peanuts" },
-      { x: 46, y: 52, w: 12, h: 14, cmd: "drink beer", label: "beer" }
+      { x: 16, y: 26, w: 26, h: 36, cmd: "examine bar", label: "bar" },
+      { x: 40, y: 30, w: 16, h: 40, cmd: "examine arthur", label: "arthur" },
+      { x: 54, y: 28, w: 16, h: 40, cmd: "examine ford", label: "ford" },
+      { x: 26, y: 50, w: 12, h: 12, cmd: "eat peanuts", label: "peanuts" },
+      { x: 36, y: 50, w: 10, h: 10, cmd: "drink beer", label: "beer" },
+      { x: 58, y: 42, w: 10, h: 14, cmd: "examine satchel", label: "satchel" }
     ],
     vogon: [
-      { x: 6, y: 20, w: 28, h: 40, cmd: "examine dispenser", label: "dispenser" },
-      { x: 36, y: 10, w: 18, h: 26, cmd: "examine hook", label: "hook" },
-      { x: 54, y: 46, w: 16, h: 20, cmd: "examine drain", label: "drain" },
-      { x: 70, y: 20, w: 22, h: 34, cmd: "examine panel", label: "panel" }
+      { x: 6, y: 30, w: 24, h: 40, cmd: "examine dispenser", label: "dispenser" },
+      { x: 36, y: 8, w: 16, h: 32, cmd: "examine hook", label: "hook" },
+      { x: 56, y: 56, w: 16, h: 16, cmd: "examine drain", label: "drain" },
+      { x: 76, y: 26, w: 18, h: 38, cmd: "examine panel", label: "panel" },
+      { x: 18, y: 42, w: 10, h: 12, cmd: "press button", label: "button" }
     ],
     hog: [
-      { x: 24, y: 20, w: 28, h: 34, cmd: "examine drive", label: "drive" },
-      { x: 58, y: 26, w: 22, h: 30, cmd: "examine eddie", label: "eddie" },
-      { x: 40, y: 56, w: 18, h: 16, cmd: "examine panel", label: "panel" }
+      { x: 26, y: 26, w: 22, h: 36, cmd: "examine drive", label: "drive" },
+      { x: 58, y: 30, w: 20, h: 28, cmd: "examine eddie", label: "eddie" },
+      { x: 8, y: 36, w: 16, h: 22, cmd: "examine console", label: "console" },
+      { x: 42, y: 48, w: 14, h: 12, cmd: "examine panel", label: "panel" }
     ],
     poetry: [
-      { x: 28, y: 20, w: 30, h: 40, cmd: "examine captain", label: "captain" },
-      { x: 38, y: 56, w: 22, h: 16, cmd: "listen", label: "poetry" }
+      { x: 30, y: 26, w: 28, h: 38, cmd: "examine captain", label: "captain" },
+      { x: 38, y: 40, w: 14, h: 14, cmd: "listen", label: "poetry" },
+      { x: 22, y: 28, w: 10, h: 28, cmd: "examine door", label: "door" }
+    ],
+    lane: [
+      { x: 62, y: 18, w: 22, h: 28, cmd: "examine pub", label: "pub" },
+      { x: 38, y: 32, w: 24, h: 36, cmd: "examine lane", label: "lane" },
+      { x: 10, y: 28, w: 18, h: 32, cmd: "examine hedge", label: "hedge" }
+    ],
+    magrathea: [
+      { x: 32, y: 28, w: 36, h: 36, cmd: "examine fjord", label: "fjord" },
+      { x: 42, y: 48, w: 16, h: 20, cmd: "examine planet", label: "planet" }
+    ],
+    galley: [
+      { x: 38, y: 22, w: 28, h: 42, cmd: "examine nutri-matic", label: "nutri-matic" },
+      { x: 46, y: 36, w: 12, h: 14, cmd: "examine tea", label: "tea" }
     ]
   };
   function imageBounds() {
